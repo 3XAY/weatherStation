@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 5,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -65,7 +65,7 @@
       42,
       43
     ],
-    "visible_layers": "ff55557f_ffffffff",
+    "visible_layers": "0fffffff_ffffffff",
     "zone_display_mode": 0
   },
   "git": {
@@ -130,19 +130,19 @@
   "project": {
     "files": [
       {
-        "name": "weatherStation.kicad_sch",
-        "open": true,
+        "name": "weatherStation.kicad_pcb",
+        "open": false,
         "window": {
-          "display": 0,
+          "display": 1,
           "maximized": true,
-          "pos_x": -1928,
-          "pos_y": 1228,
-          "size_x": 1936,
-          "size_y": 1048
+          "pos_x": -9,
+          "pos_y": -9,
+          "size_x": 3858,
+          "size_y": 2118
         }
       },
       {
-        "name": "weatherStation.kicad_pcb",
+        "name": "weatherStation.kicad_sch",
         "open": false,
         "window": {
           "display": 1,
