@@ -145,7 +145,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "283d19eb-01ff-4cba-9187-d67304227ddd")
+			(uuid "8f5027b9-02c8-409f-aba5-5a6f1094c461")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -260,7 +260,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "60492c47-947b-47aa-b234-1b82c983ea77")
+			(uuid "6ebbe220-cf84-4f7d-bbbd-3618382db93f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -792,13 +792,13 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/Footprints and Symbols/LCD.step"
 			(offset
-				(xyz -18.35 -4 18.5)
+				(xyz -18.5 -4 19)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 90 0 90)
+				(xyz 90 -0 90)
 			)
 		)
 	)
@@ -809,7 +809,7 @@
 		(descr "Bourns rotary encoder, PEC12R, with switch, with bushing, vertical shaft, 17.5mm shaft, https://www.bourns.com/docs/product-datasheets/pec12r.pdf")
 		(tags "rotary encoder")
 		(property "Reference" "SW1"
-			(at 3 -4.75 360)
+			(at 3 -4.75 0)
 			(layer "F.SilkS")
 			(uuid "4e0e633f-5e2f-4085-8ba3-9e479aa6defd")
 			(effects
@@ -820,7 +820,7 @@
 			)
 		)
 		(property "Value" "RotaryEncoder_Switch"
-			(at 7.5 11 360)
+			(at 7.5 11 0)
 			(layer "F.Fab")
 			(uuid "3aa12051-7b3b-4b35-9622-f394433df87d")
 			(effects
@@ -831,10 +831,10 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0d0e7f71-9417-4799-ad75-0e4e81cbef01")
+			(uuid "60a7b976-5312-492b-8088-85677ae86562")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1296,7 +1296,7 @@
 			(uuid "c6a1f41e-2cc0-4c84-8aa6-93931f17b31e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 7.6 2.5 360)
+			(at 7.6 2.5 0)
 			(layer "F.Fab")
 			(uuid "67666b7d-5f10-4957-b9a3-6d7b64b7eac8")
 			(effects
@@ -1398,7 +1398,7 @@
 		(descr "SMD pad as test Point, diameter 2.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP2"
-			(at 2.8 -1.998 360)
+			(at 2.8 -1.998 0)
 			(layer "F.SilkS")
 			(uuid "9b416496-4062-4a86-a9b7-442c471e8d65")
 			(effects
@@ -1409,7 +1409,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 0 2.05 360)
+			(at 0 2.05 0)
 			(layer "F.Fab")
 			(uuid "39db5785-440d-4340-91a3-ff19b838bfd9")
 			(effects
@@ -1420,10 +1420,10 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "824bc70f-907b-4c0c-92a0-dbc81930005f")
+			(uuid "3b1899dc-2794-4b88-a973-6cf1763a2880")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1485,7 +1485,7 @@
 			(uuid "6c4acfdf-c6c6-4663-889c-3899e566c8b4")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -2 360)
+			(at 0 -2 0)
 			(layer "F.Fab")
 			(uuid "a3a32fb7-241d-4a57-9447-eacdbe9d2842")
 			(effects
@@ -1539,7 +1539,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1165bcb3-ce20-44bf-8c17-c4892fd9ae2c")
+			(uuid "b68f8bd6-a92c-4eee-9990-2f6a7f28f0a4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1586,51 +1586,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "e7525467-9e92-43aa-bc4c-2b35e684d886")
-		)
-		(fp_circle
-			(center -32.5 -26.5)
-			(end -31.5 -26.5)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "d6621295-e3aa-4feb-b70b-abb38c020960")
-		)
-		(fp_circle
-			(center -32.5 0)
-			(end -31.5 0)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "694f9e82-4bee-4bde-a0f3-bbf990949e96")
-		)
-		(fp_circle
-			(center -1.5 -26.5)
-			(end -0.5 -26.5)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "c8b27d63-c56e-472c-b77e-c3d484e9eecd")
-		)
-		(fp_circle
-			(center -1.5 0)
-			(end -0.5 0)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "bf3002aa-19ce-4f76-8839-86c439130911")
+			(uuid "685dff50-87fd-4eff-8d55-42b06d6eec06")
 		)
 		(fp_text user "mmWave"
 			(at -25.85 -7.05 0)
@@ -1650,28 +1606,28 @@
 			(size 2 2)
 			(drill oval 2)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "0252db1d-7555-491c-97f7-8389bd8e4625")
+			(uuid "03ea1980-040e-4dfe-a7f4-e346c84e1226")
 		)
 		(pad "" np_thru_hole circle
 			(at -32.5 0)
 			(size 2 2)
 			(drill oval 2)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "a2ff61c8-1358-4e36-a515-a5533a62a290")
+			(uuid "0bcf7140-2382-4b9f-8b57-dcdba2039eeb")
 		)
 		(pad "" np_thru_hole circle
 			(at -1.5 -26.5)
 			(size 2 2)
 			(drill oval 2)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "e16c7ecc-17ef-427f-a9a6-013c91439932")
+			(uuid "ac17aabc-7ae4-4cf2-bf27-e83ecdde84c4")
 		)
 		(pad "" np_thru_hole circle
 			(at -1.5 0)
 			(size 2 2)
 			(drill oval 2)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "1cbe20a4-5a40-48c3-aa37-7b18b46cc2df")
+			(uuid "d91985da-231f-4148-b24f-13602cb10b31")
 		)
 		(pad "1" thru_hole oval
 			(at -2 -17)
@@ -1874,16 +1830,15 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 90)
-			(layer "B.Fab")
+			(at 0 0 -90)
+			(layer "F.Fab")
 			(hide yes)
-			(uuid "00e0e924-ab4d-4bfb-a3b1-c11dde7d5992")
+			(uuid "f2962d77-48bb-4ab0-a8bb-9610f4763170")
 			(effects
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
 				)
-				(justify mirror)
 			)
 		)
 		(property "Datasheet" ""
@@ -2156,15 +2111,14 @@
 		)
 		(property "Footprint" ""
 			(at 0 0 90)
-			(layer "B.Fab")
+			(layer "F.Fab")
 			(hide yes)
-			(uuid "9b040e10-0d35-46b2-9169-3050ec849202")
+			(uuid "bfd2dead-af47-40fb-a449-647e31e8c2df")
 			(effects
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
 				)
-				(justify mirror)
 			)
 		)
 		(property "Datasheet" "https://wiki.wemos.cc/products:d1:d1_mini#documentation"
