@@ -131,7 +131,7 @@
     "files": [
       {
         "name": "weatherStation.kicad_pcb",
-        "open": true,
+        "open": false,
         "window": {
           "display": 1,
           "maximized": true,

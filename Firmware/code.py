@@ -36,12 +36,12 @@ spi = busio.SPI(clock=board.GP18, MOSI=board.GP19, MISO=board.GP16) #Need to cha
 tft_cs = board.GP20 #Need to change pins for ESP32
 tft_dc = board.GP22 #Need to change pins for ESP32
 display_bus = FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.GP26) #Need to change pins for ESP32
-display = ST7735R(display_bus, width=128, height=160, rotation=180, bgr=True) #Remove R from library name for final version
+display = ST7735R(display_bus, width=160, height=128, rotation=270, bgr=True) #Remove R from library name for final version
 
 # Make the display context
 splash = displayio.Group()
 display.root_group = splash
-color_bitmap = displayio.Bitmap(128, 160, 1)
+color_bitmap = displayio.Bitmap(160, 128, 1)
 color_palette = displayio.Palette(1)
 color_palette[0] = 0x000000  #Black bg
 
@@ -63,6 +63,21 @@ splash.append(text_group)
 while True: #Keep refreshing
     response = requests.get(weatherURL)
     responseJSON = response.json()
+    def getData(inputStr, appendDegree=False):
+        if appendDegree:
+            return str(responseJSON['current'][inputStr]) + str(responseJSON['current_units']['temperature_2m'])
+        else:
+            return str(responseJSON['current'][inputStr])
     #MUST BE IN ONE LINE, OTHERWISE IT'LL GET MAD AND THROW AN ERROR IDK WHY
-    text.text = str(responseJSON['current']['temperature_2m']) + "°F" + "\n"+ "Feels like: " + str(responseJSON['current']['apparent_temperature']) + "°F"
+    text.text = getData("temperature_2m", appendDegree=True) +"\nFeels like: " + getData("apparent_temperature", appendDegree=True) + "\nWind Speed: " + getData('wind_speed_10m') + "Mph"
+    response.close()
     time.sleep(300)
+
+#Future updates:
+# - Add icons
+# - Make a dashboard with basic info (temp and precipitation)
+# - Make a menu system, "scroll" to see other info (feels like, wind speed, notifications, etc)
+# - Add server connection
+# - Add menu to show mmWave info
+# - Connect to Google Home for auto lights turn on/off
+# - CHANGE CASE TO MOUNT HORIZONTALLY, THE USB PORT SHOULD BE FACING UPWARDS
