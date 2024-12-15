@@ -1,3 +1,8 @@
+#settings.toml config:
+#CIRCUITPY_WIFI_SSID = "insert ssid here"
+#CIRCUITPY_WIFI_PASSWORD = "insert passsord here"
+#WEATHER_URL = "insert URL here"
+
 #Imports
 import board
 import terminalio #font
@@ -7,6 +12,21 @@ from adafruit_st7735r import ST7735R #Need to change to ST7735 for acutal firmwa
 from fourwire import FourWire #For SPI connection
 import busio #For SPI connection
 from digitalio import DigitalInOut, Direction, Pull #For buttons (encoder will be added later)
+import adafruit_requests #For webscraping
+import wifi
+import os #For wifi passwords, etc
+import socketpool
+import ssl
+import time
+
+#Weather URL
+weatherURL = os.getenv('WEATHER_URL')
+
+#Connect to WiFi
+wifi.radio.connect(os.getenv('CIRCUITPY_WIFI_SSID'), os.getenv('CIRCUITPY_WIFI_PASSWORD'))
+
+pool = socketpool.SocketPool(wifi.radio)
+requests = adafruit_requests.Session(pool, ssl.create_default_context())
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
@@ -36,12 +56,13 @@ btn.pull = Pull.UP
 
 # Draw a label
 text_group = displayio.Group(scale=1, x=4, y=7)
-text_area = label.Label(terminalio.FONT, text="?", color=0xFFFFFF)
-text_group.append(text_area)  # Subgroup for text scaling
+text = label.Label(terminalio.FONT, text="Loading...", color=0xFFFFFF)
+text_group.append(text)  # Subgroup for text scaling
 splash.append(text_group)
 
 while True: #Keep refreshing
-    if(btn.value): #Check if button is pressed or not
-        text_area.text = "Up" #If yes, update the label "text_area" to display "Up"
-    else:
-        text_area.text = "Down" #Else, display "Down"
+    response = requests.get(weatherURL)
+    responseJSON = response.json()
+    #MUST BE IN ONE LINE, OTHERWISE IT'LL GET MAD AND THROW AN ERROR IDK WHY
+    text.text = str(responseJSON['current']['temperature_2m']) + "°F" + "\n"+ "Feels like: " + str(responseJSON['current']['apparent_temperature']) + "°F"
+    time.sleep(300)
