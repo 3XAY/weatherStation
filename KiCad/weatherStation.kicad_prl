@@ -128,7 +128,20 @@
     "sorting_column": 0
   },
   "project": {
-    "files": []
+    "files": [
+      {
+        "name": "weatherStation.kicad_pcb",
+        "open": false,
+        "window": {
+          "display": 1,
+          "maximized": true,
+          "pos_x": -9,
+          "pos_y": -9,
+          "size_x": 3858,
+          "size_y": 2118
+        }
+      }
+    ]
   },
   "schematic": {
     "selection_filter": {

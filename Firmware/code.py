@@ -55,18 +55,19 @@ btn.pull = Pull.UP
 
 # Draw a label
 text_group = displayio.Group(scale=1, x=4, y=7)
-text = label.Label(terminalio.FONT, text="Loading...", color=0xFFFFFF)
+text = label.Label(terminalio.FONT, text="Connecting to wifi...", color=0xFFFFFF)
 text_group.append(text)  # Subgroup for text scaling
 splash.append(text_group)
 
+#Add images
 image, palette = adafruit_imageload.load(
-    "imgs/rain.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette
-)
+    "imgs/rain.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
 tile_grid = displayio.TileGrid(image, pixel_shader=palette)
+images = displayio.Group(scale=1, x=4, y=75)
+images.append(tile_grid)
+splash.append(images)
 
-splash.append(tile_grid)
-
-#Weather URL
+#Weather URL (contains long/lat)
 weatherURL = os.getenv('WEATHER_URL')
 
 #Connect to WiFi
@@ -74,6 +75,10 @@ wifi.radio.connect(ssid=os.getenv('CIRCUITPY_WIFI_SSID'), password=os.getenv('CI
 
 pool = socketpool.SocketPool(wifi.radio)
 requests = adafruit_requests.Session(pool, ssl.create_default_context())
+
+text.text = "Wifi connected"
+time.sleep(1)
+text.text = "Fetching weather data..."
 
 
 while True: #Keep refreshing
@@ -85,10 +90,13 @@ while True: #Keep refreshing
         else:
             return str(responseJSON['current'][inputStr])
     if(getData("rain") == "0.0"):
+        #Add images
         image, palette = adafruit_imageload.load(
-        "imgs/sun.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
+            "imgs/sun.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
         tile_grid = displayio.TileGrid(image, pixel_shader=palette)
-        splash.append(tile_grid)
+        images = displayio.Group(scale=1, x=4, y=75)
+        images.append(tile_grid)
+        splash.append(images)
     #MUST BE IN ONE LINE, OTHERWISE IT'LL GET MAD AND THROW AN ERROR IDK WHY
     text.text = getData("temperature_2m", appendDegree=True) +"\nFeels like: " + getData("apparent_temperature", appendDegree=True) + "\nWind Speed: " + getData('wind_speed_10m') + "Mph"
     time.sleep(300)
