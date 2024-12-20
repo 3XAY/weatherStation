@@ -3,6 +3,13 @@
 #CIRCUITPY_WIFI_PASSWORD = "insert passsord here"
 #WEATHER_URL = "insert URL here"
 
+#Libs to import:
+# - adafruit_display_text
+# - adafruit_connection_manager
+# - adafruit_requests
+# - adafruit_st7735r (MAKE SURE TO CHANGE THIS TO NON-R VERSION FOR FINAL BUILD)
+# - adafruit_imageload
+
 #Imports
 import board
 import terminalio #font
@@ -18,6 +25,7 @@ import os #For wifi passwords, etc
 import socketpool
 import ssl
 import time
+import adafruit_imageload #For graphics
 
 #Weather URL
 weatherURL = os.getenv('WEATHER_URL')
@@ -60,6 +68,14 @@ text = label.Label(terminalio.FONT, text="Loading...", color=0xFFFFFF)
 text_group.append(text)  # Subgroup for text scaling
 splash.append(text_group)
 
+image, palette = adafruit_imageload.load(
+    "imgs/rain.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette
+)
+tile_grid = displayio.TileGrid(image, pixel_shader=palette)
+
+splash.append(tile_grid)
+
+
 while True: #Keep refreshing
     response = requests.get(weatherURL)
     responseJSON = response.json()
@@ -68,9 +84,13 @@ while True: #Keep refreshing
             return str(responseJSON['current'][inputStr]) + str(responseJSON['current_units']['temperature_2m'])
         else:
             return str(responseJSON['current'][inputStr])
+    if(getData("rain") == "0.0"):
+        image, palette = adafruit_imageload.load(
+        "imgs/sun.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
+        tile_grid = displayio.TileGrid(image, pixel_shader=palette)
+        splash.append(tile_grid)
     #MUST BE IN ONE LINE, OTHERWISE IT'LL GET MAD AND THROW AN ERROR IDK WHY
     text.text = getData("temperature_2m", appendDegree=True) +"\nFeels like: " + getData("apparent_temperature", appendDegree=True) + "\nWind Speed: " + getData('wind_speed_10m') + "Mph"
-    response.close()
     time.sleep(300)
 
 #Future updates:
