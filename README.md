@@ -16,8 +16,8 @@ All of the code is in Circuitpython
 - 3D Printed Case
 
 ## Schematic:
-![schematic](Screenshots\schematic.png)
+![schematic](Screenshots/schematic.png)
 
 ## PCB:
-![PCB Front](Screenshots\pcbFront.png)
-![PCB Back](Screenshots\pcbBack.png)
+![PCB Front](Screenshots/pcbFront.png)
+![PCB Back](Screenshots/pcbBack.png)
