@@ -27,15 +27,6 @@ import ssl
 import time
 import adafruit_imageload #For graphics
 
-#Weather URL
-weatherURL = os.getenv('WEATHER_URL')
-
-#Connect to WiFi
-wifi.radio.connect(os.getenv('CIRCUITPY_WIFI_SSID'), os.getenv('CIRCUITPY_WIFI_PASSWORD'))
-
-pool = socketpool.SocketPool(wifi.radio)
-requests = adafruit_requests.Session(pool, ssl.create_default_context())
-
 # Release any resources currently in use for the displays
 displayio.release_displays()
 
@@ -74,6 +65,15 @@ image, palette = adafruit_imageload.load(
 tile_grid = displayio.TileGrid(image, pixel_shader=palette)
 
 splash.append(tile_grid)
+
+#Weather URL
+weatherURL = os.getenv('WEATHER_URL')
+
+#Connect to WiFi
+wifi.radio.connect(ssid=os.getenv('CIRCUITPY_WIFI_SSID'), password=os.getenv('CIRCUITPY_WIFI_PASSWORD'))
+
+pool = socketpool.SocketPool(wifi.radio)
+requests = adafruit_requests.Session(pool, ssl.create_default_context())
 
 
 while True: #Keep refreshing
