@@ -99,6 +99,7 @@ while True: #Keep refreshing
         splash.append(images)
     #MUST BE IN ONE LINE, OTHERWISE IT'LL GET MAD AND THROW AN ERROR IDK WHY
     text.text = getData("temperature_2m", appendDegree=True) +"\nFeels like: " + getData("apparent_temperature", appendDegree=True) + "\nWind Speed: " + getData('wind_speed_10m') + "Mph"
+    response.close()
     time.sleep(300)
 
 #Future updates:
