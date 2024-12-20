@@ -12,6 +12,7 @@ All of the code is in Circuitpython
 - ST7735 128x160 SPI TFT Display
 - EC11 Encoder with switch
 - Seeed mmWave Human Presence Detection Sensor (101991030)
+- 1x 10Ohm THT Resistor
 - PCB
 - 3D Printed Case
 
