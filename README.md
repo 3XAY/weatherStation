@@ -4,6 +4,7 @@ A submission for a ysws called Asylum by Hack Club.
 This weather station gets the weather data from online.
 It also can check if your server(s) are up.
 Finally, it has a mmWave presence detection sensor to automatically turn lights on/off in your room with Google Home.
+Note that this has custom hardware, but only works on the Sprig as of now, due to shipping times.
 
 All of the code is in Circuitpython
 
